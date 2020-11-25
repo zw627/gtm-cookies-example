@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-RJE3K720RG"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-RJE3K720RG");
+    </script>
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KTJR8HX");
+    </script>
+    <!-- End Google Tag Manager -->
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KTJR8HX"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div>
+      <div>
+        <input type="checkbox" id="cookie-func" checked disabled />
+        <label for="cookie-func">Functional</label>
+      </div>
+      <div>
+        <input type="checkbox" id="cookie-opt" />
+        <label for="cookie-opt">Optimization</label>
+      </div>
+      <div>
+        <input type="checkbox" id="cookie-tpc" />
+        <label for="cookie-tpc">Third party content</label>
+      </div>
+      <div>
+        <input type="checkbox" id="cookie-ads" />
+        <label for="cookie-ads">Advertisements</label>
+      </div>
+    </div>
+    <button>Submit</button>
+
+    <script>
+      const cookieOpt = document.getElementById("cookie-opt");
+      const cookieTpc = document.getElementById("cookie-tpc");
+      const cookieAds = document.getElementById("cookie-ads");
+      const cookieConsents = {
+        optimization: false,
+        thirdParty: false,
+        ads: false,
+      };
+
+      // Checkbox
+      cookieOpt.addEventListener("change", (e) => {
+        cookieConsents.optimization = e.target.checked ? true : false;
+      });
+      cookieTpc.addEventListener("change", (e) => {
+        cookieConsents.thirdParty = e.target.checked ? true : false;
+      });
+      cookieAds.addEventListener("change", (e) => {
+        cookieConsents.ads = e.target.checked ? true : false;
+      });
+
+      // Submit
+      document.querySelector("BUTTON").addEventListener("click", () => {
+        setCookieGtm("_gtm_cookie_func", "1", 7);
+        cookieConsents.optimization
+          ? setCookieGtm("_gtm_cookie_opt", "1", 7)
+          : setCookieGtm("_gtm_cookie_opt", "0", 7);
+        cookieConsents.thirdParty
+          ? setCookieGtm("_gtm_cookie_tpc", "1", 7)
+          : setCookieGtm("_gtm_cookie_tpc", "0", 7);
+        cookieConsents.ads
+          ? setCookieGtm("_gtm_cookie_ads", "1", 7)
+          : setCookieGtm("_gtm_cookie_ads", "0", 7);
+      });
+    </script>
+  </body>
+</html>
